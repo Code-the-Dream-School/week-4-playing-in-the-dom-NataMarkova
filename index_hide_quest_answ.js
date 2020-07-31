@@ -76,8 +76,8 @@ const calculate_sphere = () => {
     let radius = radiusField.value;
 
     // calculate the volume and area value
-    let volume = ((4/3) * Math.PI * (radius^3));
-    let area = (4 * Math.pow(radius.value, 2));
+    let volume = ((4/3) * Math.PI * Math.pow(radius, 3));
+    let area = (4 * Math.PI * Math.pow(radius, 2));
     
     // providing the results of calculation 
     volumeField.value = volume;
