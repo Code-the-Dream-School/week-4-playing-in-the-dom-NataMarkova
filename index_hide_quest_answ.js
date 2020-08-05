@@ -76,8 +76,8 @@ const calculate_sphere = () => {
     let radius = radiusField.value;
 
     // calculate the volume and area value
-    let volume = ((4/3) * Math.PI * (radius^3));
-    let area = (4 * Math.PI * (radius^2));
+    let volume = ((4/3) * Math.PI * Math.pow(radius, 3));
+    let area = (4 * Math.PI * Math.pow(radius, 2));
     
     // providing the results of calculation 
     volumeField.value = volume;
@@ -102,30 +102,43 @@ document.getElementById('MyForm').onsubmit = calculate_sphere;
 // append the 3 buttons to the element with the 'id = a-4' as childrens
 
 // create variables
-const quest1 = document.getElementById('a-1');
-const quest2 = document.getElementById('a-2');
-const quest3 = document.getElementById('a-3');
-const a4Div = document.getElementById('a-4');
-let answers = [quest1, quest2, quest3];
+const question1 = document.createElement("button");
+const question2 = document.createElement("button");
+const question3 = document.createElement("button");
+const a4div = document.getElementById("a-4");
 
-// create buttons that are refer to the array answers
-for (i = 0; i < answers.length; i++) {
-    let button1 = document.createElement('button');
-    let textInside = document.createTextNode(`Hide Question ${i + 1}`);
-    button1.value = i;
-    button1.appendChild(textInside);
-    a4Div.appendChild(button1);
-}
+question1.innerText = "Hide question 1";
+question2.innerText = "Hide question 2";
+question3.innerText = "Hide question 3";
 
-// hide the answers when user clicks
-a4Div.addEventListener('click', (event) => {
-    const question1 = answers[event.target.value];
+a4div.appendChild(question1);
+a4div.appendChild(question2);
+a4div.appendChild(question3);
 
-// use conditional statement for showing or hiding the questions
-    if (question1.style.display === 'none') {
-        // set the display property to value 'block'
-            question1.style.display = 'block';
-        } else {
-            question1.style.display = 'none';
-        }
+// function that hide question and answer the question #1
+question1.addEventListener("click", (event) => {
+  let question1 = document.querySelector(".question-item:nth-child(1)");
+  if (question1.style.display === "block" || !question1.style.display) {
+    question1.style.display = "none";
+  } else {
+    question1.style.display = "block";
+  }
+});
+// function that hide question and answer the question #2
+question2.addEventListener("click", (event) => {
+  let question2 = document.querySelector(".question-item:nth-child(2)");
+  if (question2.style.display === "block" || !question2.style.display) {
+    question2.style.display = "none";
+  } else {
+    question2.style.display = "block";
+  }
+});
+// function that hide question and answer the question #3
+question3.addEventListener("click", (event) => {
+    let question3 = document.querySelector(".question-item:nth-child(3)");
+    if (question3.style.display === "block" || !question3.style.display) {
+        question3.style.display = "none";
+    } else {
+        question3.style.display = "block";
+    }
 });
